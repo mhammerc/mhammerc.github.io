@@ -1,0 +1,393 @@
+---
+import Layout from "../layout.astro";
+import Bio from "../components/bio.astro";
+import TextBox from "../components/textBox.astro";
+import VideoCard from "../components/VideoCard.astro";
+import TableOfContent from "../components/tableOfContent.astro";
+---
+
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .bio {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .table-of-content {
+    border-top: 1px solid #d9d9d9;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .sections {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid #d9d9d9;
+  }
+
+  .section {
+    padding-top: 30px;
+    padding-bottom: 100px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 50px;
+  }
+
+  .empty-section {
+    height: 100px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 600;
+    align-self: flex-start;
+  }
+</style>
+
+<Layout>
+  <div class="page">
+    <div class="bio">
+      <Bio />
+    </div>
+
+    <div class="table-of-content">
+      <TableOfContent />
+    </div>
+
+    <div class="sections">
+      <div class="section">
+        <TextBox
+          color="#EDFCF3"
+          title="Welcome to my portfolio!"
+          paragraph="Below, you'll find some of my past creations and accomplishments.\n\nThis showcases the most interesting highlights from my work."
+        />
+
+        <TextBox
+          color="#EDFCF3"
+          title="Why this portfolio?"
+          paragraph="I've found that bento-style videos are more engaging to experience and concise enough to respect your time.\n\nI hope you'll find this portfolio both informative and enjoyable to explore."
+        />
+      </div>
+
+      <h2 class="section-title" id="taiji">Taiji Remote (2024 - 2025)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/taiji-1"
+          videoHeight={300}
+          title="WHAT IS IT?"
+          backgroundColor="#F0F6F9"
+          description="Taiji Remote is a Bluetooth-enabled device that enables hands-free bike navigation through its companion app.\n\nI spent a year developing both the mobile application and the physical hardware.\n\nThe remote communicates wirelessly via Bluetooth Low Energy (BLE), providing safe navigation control while cycling.\n\nThe Flutter app features rich animations."
+          tags={["Flutter", "BLE", "Electronics", "nRF52 chips"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/taiji-2"
+          videoHeight={490}
+          title="TRIP RECORDING"
+          backgroundColor="#F0F6F9"
+          description={`Taiji automatically records bike trips in the background using <a target="_blank" href="https://github.com/transistorsoft/flutter_background_geolocation">Background Geolocation</a>.\n\nUsers can view their trip history, detailed statistics, and performance metrics through the interfaces shown in the video.`}
+          tags={["PostGIS", "Background Geolocation and Recording"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/taiji-3"
+          videoHeight={490}
+          title="OPENSTREETMAP"
+          backgroundColor="#F0F6F9"
+          description={`All geospatial data (trips, POIs) is stored using PostgreSQL with <a target="_blank" href="https://postgis.net">PostGIS</a>. It is very easy to use and very performant!\n\nI ingest the entire <a target="_blank" href="https://planet.openstreetmap.org">OpenStreetMap Planet database</a> weekly, using <a target="_blank" href="https://osmcode.org/osmium-tool">Osmium</a> to filter the 80GB dataset down to a few hundred megabytes.`}
+          tags={["OpenStreetMap Planet", "PostgreSQL", "PostGIS", "Osmium"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/taiji-4"
+          videoHeight={490}
+          title="BIKE INTERFACES"
+          backgroundColor="#F0F6F9"
+          description={`The video demonstrates the app with the Taiji Remote simulator in action.\n\nThe remote provides four essential controls: up, down, OK, and back navigation.\n\nI implemented the interface paradigm for directional cross navigation, instead of traditional touch-based interactions.\n\nEvery interaction features fluid animations powered by Flutter's rendering engine.`}
+          tags={["Flutter", "Video game-like interfaces"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="electronics">
+        PCB Design & Development (2025 - now)
+      </h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/electronics-1"
+          videoHeight={220}
+          title="PCB DESIGN"
+          backgroundColor="#F0F6F9"
+          description={`As a hobbyist, I enjoy PCB design, from drawing schematics to maintaining the production folder.\n\nThe video shows a PCB I developed featuring a nRF52 BLE System-On-Module, battery power supply with USB charging, and an integrated joystick.\n\nI handled the complete development process: component sourcing, creating a detailed Bill of Materials (BOM), and maintaining organized KiCad libraries.\n\nWhile not my primary expertise, I’ve developed these skills through mentorship and dedicated self-learning.`}
+          tags={[
+            "KiCad",
+            "Battery Power Supply",
+            "USB Charging",
+            "Raytac nRF52 SOM",
+            "JST connectors",
+          ]}
+        />
+      </div>
+
+      <h2 class="section-title" id="weezem">Weezem (2021 - now)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/weezem-1"
+          backgroundColor="#F9F4EC"
+          title="WHAT IS IT?"
+          description={`<a href="https://weezem.com" target="_blank">Weezem</a> is a social app for meeting friends that launched in 2021.
+
+As of 2025, we've reached 100,000 registered users with 1,000+ daily active users.
+
+I built the entire application and backend infrastructure from the ground up and continue to maintain it.`}
+          tags={["iOS", "Android", "react-native"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/weezem-2"
+          backgroundColor="#F9F4EC"
+          title="MESSAGING"
+          description={`Self-hosted real-time messaging system supporting text, emojis, reactions, GIFs, and photos.\n\nHandles both one-to-one conversations and group chats up to 500 members.\n\nProcesses over 1.2 million messages with reliable performance.`}
+          tags={["Websockets", "GraphQL"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/weezem-3"
+          backgroundColor="#F9F4EC"
+          title="EMOJI PICKER"
+          description={`Built a localized emoji picker using <a target="_blank" href="https://emojibase.dev/">Emojibase</a> hosted on our CDN.\n\nFeatures lazy loading on scroll for optimal performance.\n\nIncludes fuzzy search functionality in multiple languages.`}
+          tags={["Emojibase"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/weezem-4"
+          backgroundColor="#F9F4EC"
+          title="PREMIUM SUBS"
+          description={`Enables in-app products and premium subscriptions on Google and Apple stores through <a target="_blank" href="https://www.revenuecat.com/">RevenueCat</a> integration.`}
+          tags={["iOS", "Android", "RevenueCat"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/weezem-5"
+          backgroundColor="#F9F4EC"
+          title="MERCHANTS"
+          description={`Enables professionals to sell paid activities through <a target="_blank" href="https://stripe.com/en-fr/connect">Stripe Connect</a> integration.\n\nFeatures transparent fees, robust dispute handling, and an intuitive merchant dashboard. Processes tens of thousands of euros in transactions annually.`}
+          tags={["Stripe Connect", "Asynchronous Webhooks"]}
+        />
+
+        <VideoCard
+          backgroundColor="#F9F4EC"
+          title="PERFORMANCE"
+          description={`Thanks to a well-designed PostgreSQL schema (tables, columns, and indexes) and optimized queries, we maintain a P90 service time of 170ms (P95 250ms).\n\nI’ve continuously identified and resolved performance bottlenecks over the years.\n\nThe system handles 400 requests per minute with no performance degradation during peak hours.`}
+          tags={[
+            "node.js",
+            "GraphQL",
+            "PostgreSQL",
+            "Google Cloud Run",
+            "Apollo Studio",
+          ]}
+        />
+      </div>
+
+      <h2 class="section-title" id="devops">Dev Ops (2021 - now)</h2>
+
+      <div class="section">
+        <VideoCard
+          backgroundColor="#FFFFFF"
+          title="Google Cloud"
+          description={`I deploy all projects on Google Cloud using the following stack:\n\n• Cloud SQL for PostgreSQL databases\n• Cloud Run for containerized services\n• Tailscale for secure VPC access\n• Cloud Build for continuous deployment\n• Cloud Load Balancer\n• Cloud Storage for static assets\n• Identity Platform for authentication\n• Error Reporting and Sentry for monitoring`}
+          tags={[
+            "Cloud Run",
+            "Cloud SQL",
+            "Cloud Load Balancer",
+            "Cloud Storage",
+            "Cloud Build",
+            "Cloud DNS",
+            "Compute Engine",
+            "Identity Platform",
+            "Sentry",
+          ]}
+        />
+
+        <VideoCard
+          backgroundColor="#FFFFFF"
+          title="IaC"
+          description={`I can deploy complete infrastructure in hours using either the console or Pulumi automation.\n\nThis architecture has been battle-tested across five production projects.\n\nCosts only €150-200/month for small projects while being extremely reliable.`}
+          tags={["Google Cloud Console", "Pulumi", "Terraform"]}
+        />
+
+        <VideoCard
+          backgroundColor="#FFFFFF"
+          title="BACKUPS"
+          description={`Nightly automated backups to AWS for databases and assets, ensuring data availability even if our Google Cloud account faces issues.\n\nThe PostgreSQL instance has <a href="https://www.postgresql.org/docs/current/wal-intro.html">WAL</a> enabled, which allows for Point-In-Time Recovery.`}
+          tags={["Cloud SQL", "Cloud Storage", "AWS"]}
+        />
+
+        <VideoCard
+          backgroundColor="#FFFFFF"
+          title="AWS"
+          description={`In addition to backups, I use AWS for specific features such as Amazon SES for transactional emails and Amazon Rekognition for image recognition (like face detection).`}
+          tags={["AWS", "Amazon SES", "Amazon Rekognition"]}
+        />
+
+        <VideoCard
+          backgroundColor="#FFFFFF"
+          title="Apollo Studio"
+          description={`For GraphQL servers, <a href="https://www.apollographql.com/docs/graphos/platform">Apollo Studio</a> is a monitoring tool that allows logging of schema changes, monitoring the service response times, and error logging for analysis.\n\nThis tool has proven essential over the years for detecting and fixing bugs as well as resolving performance issues.`}
+          tags={["GraphQL", "Apollo Studio"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="spart">SPART (2021 - 2024)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/spart-1"
+          backgroundColor="#FFF6F2"
+          title="WHAT IS IT?"
+          description={`<a href="https://spart.life" target="_blank">SPART</a> is an enterprise app designed to boost employee wellbeing.
+
+It's a social platform where employees are grouped into teams that participate in sports competitions.
+
+I built the complete application and backend infrastructure, maintaining it as the lead developer over three years.
+
+While the team occasionally included 2-3 developers, I remained the core technical contributor throughout the project.
+
+The platform serves thousands of users annually, using a similar tech stack to Weezem.`}
+          tags={["iOS", "Android", "react-native"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/spart-2"
+          backgroundColor="#FFF6F2"
+          title="XP AND LEVELING"
+          description={`I developed an XP and leveling system to gamify user engagement. Each action and sport activity awards experience points (e.g. 25 XP per kilometer walked).\n\nThe leveling system rewards users when they reach specific XP thresholds, unlocking new levels for different sports (such as Basketball Level 2).\n\nUsers are extremely focused on accurate XP tracking, so the system must be error-free. Implementing this was challenging due to complex edge cases: teams accumulate XP independently, users can belong to multiple enterprises, and all XP calculations must remain consistent across these overlapping contexts.`}
+          tags={["PostgreSQL"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="opengl">OpenGL Engine (2023)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/opengl-1"
+          videoHeight={199}
+          backgroundColor="#FFF0F0"
+          title="WHAT IS IT?"
+          description={`For learning purposes, I followed the lesson <a target="_blank" href="https://learnopengl.com/">Learn OpenGL</a>.\n\nAlong the way, I built <a target="_blank" href="https://github.com/mhammerc/engine2">this engine</a>. It is not production ready, it really was a learning playground.\n\nWatch the video and check the <a target="_blank" href="https://github.com/mhammerc/engine2/tree/main/screenshots">screenshots</a> to see more.`}
+          tags={["OpenGL", "C++", "ImGUI (UI)", "EnTT (ECS)", "GLFW"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/opengl-2"
+          videoHeight={199}
+          backgroundColor="#FFF0F0"
+          title="ECS"
+          description={`I used <a target="_blank" href="https://github.com/skypjack/entt">EnTT</a> as the ECS (Entity Component System) library, as shown in the video.\n\nIt allows for a hierarchy of entities, each with components. Components have properties that can be edited.`}
+          tags={["ImGUI (UI)", "EnTT (ECS)"]}
+        />
+
+        <VideoCard
+          videoSrc="/videos/opengl-3"
+          videoHeight={180}
+          backgroundColor="#FFF0F0"
+          title="TEXTURES & PROFILER"
+          description={`I developed a texture viewer that allows inspection of each loaded texture.\n\nI also developed a profiler to monitor the performance of each frame step.`}
+          tags={["OpenGL", "ImGUI"]}
+        />
+
+        <VideoCard
+          backgroundColor="#FFF0F0"
+          title="THE CODE"
+          description={`This project is open-source and <a target="_blank" href="https://github.com/mhammerc/engine2">available on Github</a>.\n\nI worked on it for one to two months.\n\nThe code is clean and readable, uses modern C++, and follows proper separation of concerns.`}
+          tags={["OpenGL", "ImGUI"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="turing-complete">
+        Turing Complete (CPU design) (2023)
+      </h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/turingcomplete-1"
+          videoHeight={185}
+          backgroundColor="#FFFFF6"
+          title="WHAT IS IT?"
+          description={`<a target="_blank" href="https://store.steampowered.com/app/1444480/Turing_Complete">Turing Complete</a> is a Steam "game" that teaches CPU architecture.\nYou build a complete CPU with your own ISA, using one tool: the NAND gate.\nI built my CPU using 41,019 NAND gates.\n\nI learned so much during the three weeks it took me to complete it.\n\nThe video is a bit long, feel free to scroll through.\n\n<a target="_blank" href="https://turingcomplete.game/profile/43028">Here's my profile</a> along with my score.`}
+          tags={["NAND Gates", "Logic Gates", "CPU Architecture", "Assembly"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="bugali">Bugali (2020)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/bugali-1"
+          videoHeight={190}
+          backgroundColor="#FFFFF6"
+          title="WHAT IS IT?"
+          description={`In 2020, I participated in building the first prototypes of <a target="_blank" href="https://bugali.com/">Bugali</a>.\n\nI developed all the software shown in the video.\n\nI created a C++ game engine programmable through Lua, that displays videos using SFML and FFmpeg.\nThis engine connects via Bluetooth Low Energy (BLE) to a tactile "book" device.\nThe BLE-enabled book communicates which book is inserted, which page is open, and where fingers are touching the paper, triggering corresponding on-screen interactions.\n\nThe prototypes were developed over 6 months. As the sole software developer, I was proud to deliver this complete system encompassing game engine development, video processing, wireless communication, and hardware integration.`}
+          tags={[
+            "nRF52 Bluetooth Low Energy Chip",
+            "Raspberry Pi",
+            "C++ Game Engine with Lua",
+            "SFML",
+            "FFmpeg for video playback",
+            "ImGUI",
+            "Linux Bluez",
+          ]}
+        />
+      </div>
+
+      <h2 class="section-title" id="gameboy">Game Boy Emulator (2019)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/gameboy-1"
+          videoHeight={400}
+          backgroundColor="#FFF0F0"
+          title="WHAT IS IT"
+          description={`<em>Please excuse the poor video quality, this video is old and comes from my archives!</em>\n\nI built a working Game Boy emulator. I had to <a href="https://github.com/mhammerc/SkyGame Boy/blob/master/src/backend/cpu/cpu_execute.cpp">implement each</a> <a href="https://github.com/mhammerc/SkyGame Boy/blob/master/src/backend/cpu/cpu_decode.cpp">CPU instruction</a>, <a href="https://github.com/mhammerc/SkyGame Boy/blob/master/src/backend/virtual_memory.cpp">emulate the virtual memory</a>, and <a href="https://github.com/mhammerc/SkyGame Boy/blob/master/src/backend/lcd.cpp">the display driver</a>.\n\nThe emulator is not complete: the audio synthesizer is missing, and most games don’t work yet.\n\nHowever <a href="https://github.com/mhammerc/SkyGame Boy/tree/master/roms/gblargg_tests">gblargg test ROMs</a> pass. These ROMs test each CPU instruction and behavior to verify the emulator properly emulates the hardware.\n\nTetris and Super Mario almost work (see the video).`}
+          tags={["C++", "SFML"]}
+        />
+      </div>
+
+      <h2 class="section-title" id="monimalz">Monimalz (2018 - 2019)</h2>
+
+      <div class="section">
+        <VideoCard
+          videoSrc="/videos/monimalz-1"
+          videoHeight={168}
+          backgroundColor="#F0F6F9"
+          title="MY FIRST PROJECT"
+          description={`For better quality and sound, watch <a target="_blank" href="https://www.youtube.com/watch?v=-UCSwe-Ks5A">this YouTube video</a>.\n\nMonimalz was actually my first professional job.\n\nWe were a team of 5 software developers within a larger team of around 10 people.\n\nMy role was programming the software inside the Monimalz devices: the software that controls the screens, reacts to tactile inputs, and handles BLE commands.\n\nIt was developed using Node.js on embedded Linux. I built a mini OS with a main menu and various apps (brush your teeth, learn English words, send messages to parents, and many games).\n\nFor this I developed <a target="_blank" href="https://github.com/66Origin/node-necs">a mini ECS library</a> to control sprites, sounds and more. I also built a system updater in Rust, among many other components.\n\nIt was one of my favorite projects and a lot of fun to work on.`}
+          tags={["Node.js", "2D Game Engine", "BLE"]}
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

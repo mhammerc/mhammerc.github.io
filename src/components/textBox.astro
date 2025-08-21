@@ -1,0 +1,52 @@
+---
+import { string } from "astro:schema";
+import Card from "./card.astro";
+
+interface Props {
+  color: string;
+  title: string;
+  paragraph: string;
+}
+
+const { color, title, paragraph } = Astro.props;
+---
+
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .title {
+    font-size: 21px;
+    letter-spacing: -3%;
+    font-weight: 600;
+  }
+
+  .paragraph {
+    font-size: 19px;
+    letter-spacing: -3%;
+    font-weight: 500;
+    white-space: pre-wrap;
+  }
+</style>
+
+<Card backgroundColor={color}>
+  <div class="container">
+    <p class="title">{title}</p>
+    <p class="paragraph">
+      {paragraph}
+    </p>
+  </div>
+</Card>

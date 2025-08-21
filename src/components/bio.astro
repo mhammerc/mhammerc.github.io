@@ -1,0 +1,151 @@
+---
+import { Image } from "astro:assets";
+import myPhoto from "../images/photo.png";
+import Github from "@tabler/icons/outline/brand-github.svg";
+import Linkedin from "@tabler/icons/outline/brand-linkedin.svg";
+import Cv from "@tabler/icons/outline/file-cv.svg";
+import Mail from "@tabler/icons/outline/mail.svg";
+---
+
+<style>
+  h1 {
+    margin-top: 4px;
+    font-family: "Figtree";
+    font-size: 36px;
+    letter-spacing: -2px;
+  }
+
+  ul {
+    margin-top: 4px;
+  }
+
+  li {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -3%;
+    list-style-type: disc;
+  }
+
+  .profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid #ededf0;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+  }
+
+  .links {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -3%;
+    margin-top: 16px;
+  }
+
+  .links a {
+    font-size: inherit;
+    color: inherit;
+    text-decoration: unset;
+    border-bottom: 2px solid black;
+  }
+
+  .links a:hover {
+    color: #104098;
+    border-bottom: 2px solid #104098;
+  }
+
+  .icon {
+    display: inline;
+    vertical-align: text-bottom;
+    width: 1em;
+    height: 1em;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+</style>
+
+<div>
+  <Image
+    src={myPhoto}
+    alt="myself, smiling."
+    loading="eager"
+    class="profile-photo"
+    fetchpriority="high"
+  />
+
+  <h1>Martin Hammerchmidt</h1>
+
+  <ul>
+    <li>
+      My skills in 30 seconds:
+      <ul>
+        <li><span class="bold">8 years of professional experience</span></li>
+        <li><span class="bold">Apps:</span> Flutter and React Native</li>
+        <li>
+          <span class="bold">Backends:</span> Node.js with PostgreSQL databases
+        </li>
+        <li>
+          <span class="bold">DevOps:</span> Google Cloud Platform with Pulumi
+        </li>
+        <li>
+          <span class="bold">Low level:</span> C++ programming, BLE protocols and
+          nRF52 microcontrollers
+        </li>
+        <li><span class="bold">Electronics:</span> PCB design (as a hobby)</li>
+        <li>
+          <span class="bold">Personal Projects:</span> OpenGL engine, Game Boy emulator,
+          Turing Complete (CPU design)
+        </li>
+      </ul>
+    </li>
+    <br />
+    <li>
+      I am looking for my next role where I can join a new team and keep
+      learning.
+    </li>
+    <li>
+      Send me an <a target="_blank" href="mailto:hiring@hammerchmidt.com"
+        >email</a
+      >
+      or connect on <a
+        href="https://www.linkedin.com/in/mhammerc/"
+        target="_blank">LinkedIn</a
+      > anytime. I'd be happy to chat.
+    </li>
+    <li>Paris, France</li>
+    <li>Currently freelancing</li>
+    <li>Passionate about coding since I was 14</li>
+    <li>
+      Holder of the <a
+        href="https://entreprendre.service-public.fr/vosdroits/F35438"
+        >approval</a
+      > for <a href="https://entreprendre.service-public.fr/vosdroits/F35494"
+        >the Crédit d'Impot Innovation (CII)</a
+      >
+    </li>
+
+    <p class="links">
+      <a href="https://github.com/mhammerc" target="_blank">
+        <Github class="icon" />
+        Github</a
+      > –
+
+      <a href="https://www.linkedin.com/in/mhammerc/" target="_blank">
+        <Linkedin class="icon" />
+        LinkedIn</a
+      > –
+      <a target="_blank" href="/cv.pdf">
+        <Cv class="icon" />
+        CV
+      </a>
+    </p>
+
+    <p class="links">
+      <a target="_blank" href="mailto:hiring@hammerchmidt.com">
+        <Mail class="icon" />
+        hiring@hammerchmidt.com
+      </a>
+    </p>
+  </ul>
+</div>
